@@ -10,6 +10,6 @@ for i in {1..30}; do
 done
 
 # Run migrations and seeding
-php artisan migrate --force
+php artisan migrate:fresh --force
 php artisan db:seed --force --class=BrandSeeder
 php artisan serve --host=0.0.0.0 --port=$PORT
