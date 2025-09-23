@@ -20,8 +20,6 @@ function fetchBrands(country = '') {
                     <td>${brand.terms || 'N/A'}</td>
                     <td>
                         <a href="${brand.link}" target="_blank" class="visit-btn">Visit Casino</a>
-                        <button class="edit-btn" onclick="showUpdateForm(${brand.brand_id}, '${brand.brand_name}', '${brand.brand_image}', ${brand.rating}, '${brand.country_code || ''}', '${brand.bonus || ''}', '${brand.terms || ''}', '${brand.link || ''}')">Edit</button>
-                        <button class="delete-btn" onclick="deleteBrand(${brand.brand_id})">Delete</button>
                     </td>
                 `;
                 tbody.appendChild(row);

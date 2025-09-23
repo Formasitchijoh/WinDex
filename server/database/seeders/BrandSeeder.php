@@ -11,7 +11,7 @@ class BrandSeeder extends Seeder
         $brands = [
             [
                 'brand_name' => 'Mad Casino',
-                'brand_image' => 'https://example.com/mad-casino.png',  // Replace with actual URL
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/mad-casino-optimized.png',  // Replace with actual URL
                 'rating' => 5,
                 'country_code' => 'US',  // Canada-focused from site
                 'bonus' => '300% up to €3,000 on 3 deposits',
@@ -20,7 +20,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Robocat',
-                'brand_image' => 'https://example.com/robocat.png',
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/robocat-casino-optimized.png',
                 'rating' => 4,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €500 + 200 FS',
@@ -29,7 +29,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Spinsy Casino',
-                'brand_image' => 'https://example.com/spinsy.png',
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/spinsy-casino-optimized.png',
                 'rating' => 4,
                 'country_code' => 'DE',
                 'bonus' => '100% up to €500 + 200 FS',
@@ -38,7 +38,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Talismania Casino',
-                'brand_image' => 'https://example.com/talismania.png',
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/talismania-casino-optimized.png',
                 'rating' => 4,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €500 + 200 FS + 1 crab bonus',
@@ -47,7 +47,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Legendplay Casino',
-                'brand_image' => 'https://example.com/legendplay.png',
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2024/01/LegendPlay-Casinooo-optimized.png',
                 'rating' => 3,
                 'country_code' => 'US',
                 'bonus' => '100% up to €500 + 200 FS',
@@ -56,7 +56,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Betalright Casino',
-                'brand_image' => 'https://example.com/betalright.png',
+                'brand_image' => 'https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg',
                 'rating' => 4,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €500 + 200 FS + 1 crab bonus',
@@ -65,7 +65,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'GrandZ Bet Casino',
-                'brand_image' => 'https://example.com/grandzbet.png',
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/grandzbet-casino-optimized.png',
                 'rating' => 3,
                 'country_code' => 'US',
                 'bonus' => 'Up to €800 + surprise',
@@ -74,7 +74,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Gransino Casino',
-                'brand_image' => 'https://example.com/gransino.png',
+                'brand_image' => 'https://www.opnminded.com/content/cms-images/e7139b6fab43defa27dd2da166e9918d0d257791-600x240.webp',
                 'rating' => 4,
                 'country_code' => 'DE',
                 'bonus' => '100% up to €500 + 200 FS + 1 crab bonus',
@@ -83,7 +83,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Brutal Casino',
-                'brand_image' => 'https://example.com/brutal.png',
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/06/brutal-casino_fr_8-optimized.webp',
                 'rating' => 5,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €300 without wagering',
@@ -92,7 +92,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Kingmaker Casino',
-                'brand_image' => 'https://example.com/kingmaker.png',
+                'brand_image' => 'https://www.opnminded.com/content/cms-images/0fdf91013606b4b7c03bb2f40ba8ebaecd75123e-600x240.webp',
                 'rating' => 4,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €500 + 50 chances to win €1 million',
