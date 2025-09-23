@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeaconBrands Toplist</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Top Online Casinos</h1>
+    <p id="country-info">Loading location...</p>
+    <select id="country-selector">
+        <option value="">Auto (Cloudflare CF-IPCountry)</option>
+        <option value="CA">Canada (CA)</option>
+        <option value="US">United States (US)</option>
+        <option value="DE">Germany (DE)</option>
+        <option value="FR">France (FR)</option>
+    </select>
+    <table id="brands-table">
+        <thead>
+            <tr>
+                <th>Rank</th>
+                <th>Casino</th>
+                <th>Bonus</th>
+                <th>Rating</th>
+                <th>Terms</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="brands-tbody"></tbody>
+    </table>
+    <script src="script.js"></script>
+</body>
+</html>
