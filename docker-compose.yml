@@ -1,14 +1,15 @@
 version: '3.8'
 services:
   db:
-    image: mysql:8.0
+    image: postgres:15
     environment:
-      MYSQL_ROOT_PASSWORD: password
-      MYSQL_DATABASE: windex
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: windex
+      POSTGRES_USER: root
     volumes:
-      - dbdata:/var/lib/mysql
+      - dbdata:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test: ["CMD-SHELL", "pg_isready -U root -d windex"]
       interval: 10s
       retries: 5
 
@@ -20,8 +21,9 @@ services:
       db:
         condition: service_healthy
     environment:
+      DB_CONNECTION: pgsql
       DB_HOST: db
-      DB_PORT: 3306
+      DB_PORT: 5432
       DB_DATABASE: windex
       DB_USERNAME: root
       DB_PASSWORD: password

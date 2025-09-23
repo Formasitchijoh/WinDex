@@ -1,11 +1,11 @@
 #!/bin/bash
-# Wait for MySQL to be ready (simple delay for reliability)
+# Wait for Postgres to be ready
 for i in {1..30}; do
-    if php -r "try { new PDO('mysql:host=db;dbname=windex', 'root', 'password'); exit(0); } catch (Exception \$e) { exit(1); }" 2>/dev/null; then
-        echo "MySQL is ready!"
+    if php -r "try { new PDO('pgsql:host=db;port=5432;dbname=windex', 'root', 'password'); exit(0); } catch (Exception \$e) { exit(1); }" 2>/dev/null; then
+        echo "Postgres is ready!"
         break
     fi
-    echo "Waiting for MySQL..."
+    echo "Waiting for Postgres..."
     sleep 2
 done
 
