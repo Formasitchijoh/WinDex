@@ -1,0 +1,12 @@
+.git
+/server/public/hot
+/server/public/storage
+/server/storage/*.key
+/server/vendor
+/server/.env
+/server/.phpunit.result.cache
+/server/Homestead.json
+/server/Homestead.yaml
+/server/npm-debug.log
+/server/yarn-error.log
+/web
