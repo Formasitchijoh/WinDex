@@ -7,10 +7,22 @@ function fetchBrands(country = '') {
         .then(brands => {
             const tbody = document.getElementById('brands-tbody');
             tbody.innerHTML = '';
-            brands.forEach(brand => {
+            let hasCountryMatch = brands.some(b => b.country_code === country.toUpperCase());
+            let firstNonCountryFound = false;
+
+            brands.forEach((brand, index) => {
+                const isCountryMatch = country && brand.country_code === country.toUpperCase();
+                const isFirstInCountry = isCountryMatch && brand.rank === 1;
+                const isFirstNonCountry = !isCountryMatch && !firstNonCountryFound && hasCountryMatch;
+
+                if (!isCountryMatch) firstNonCountryFound = true;
+
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${brand.rank}</td>
+                    <td class="brand-ranking">
+                    ${isFirstInCountry ? '<span class="badge best-rating">Best Rating</span>' : ''}
+                    ${isFirstNonCountry ? '<span class="badge popular">Most Popular</span>' : ''}
+                    ${brand.rank}</td>
                     <td class="casino-cell">
                         <img src="${brand.brand_image}" alt="${brand.brand_name}">
                         <span>${brand.brand_name}</span>

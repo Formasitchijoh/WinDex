@@ -21,7 +21,7 @@ class BrandSeeder extends Seeder
             [
                 'brand_name' => 'Robocat',
                 'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/robocat-casino-optimized.png',
-                'rating' => 4,
+                'rating' => 5,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €500 + 200 FS',
                 'terms' => 'Wagering ×35, min deposit €10, withdrawal 24h',
@@ -39,7 +39,7 @@ class BrandSeeder extends Seeder
             [
                 'brand_name' => 'Talismania Casino',
                 'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/talismania-casino-optimized.png',
-                'rating' => 4,
+                'rating' => 3,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €500 + 200 FS + 1 crab bonus',
                 'terms' => 'Wagering ×35 casino/×40 FS, min deposit €20, withdrawal 24-72h',

@@ -121,3 +121,24 @@ button:hover {
         text-align: center;
     }
 }
+.badge {
+    display: inline-block;
+    padding: 4px 8px;
+    margin-left: 10px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+}
+.best-rating {
+    background-color: purple; /* Green for Best Rating */
+    word-wrap:unset;
+}
+.popular {
+    background-color: orange; /* Blue for Popular */
+    word-wrap:unset;
+}
+.brand-ranking {
+    width: 100px;
+    height: 30px;
+}

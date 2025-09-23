@@ -18,13 +18,24 @@ class BrandController extends Controller
             Log::info('Invalid or missing CF-IPCountry, returning default toplist');
         }
 
-        // Filter brands by country_code if valid; otherwise, return all brands
-        $brands = $validCountry
+        // Get brands matching country_code (if valid) and order by rating
+        $countryBrands = $validCountry
             ? Brand::where('country_code', strtoupper($country))->orderBy('rating', 'desc')->get()
+            : collect([]);
+
+        // Get brands with null or different country_code, ordered by rating
+        $otherBrands = $validCountry
+            ? Brand::where(function ($query) use ($country) {
+                $query->whereNull('country_code')
+                      ->orWhere('country_code', '!=', strtoupper($country));
+            })->orderBy('rating', 'desc')->get()
             : Brand::orderBy('rating', 'desc')->get();
 
+        // Merge country-specific brands first, then others
+        $brands = $countryBrands->merge($otherBrands);
+
         // Add rank and resolve brand_image
-        $brands = $brands->map(function ($brand, $index) {
+        $brands = $brands->values()->map(function ($brand, $index) {
             $brand->rank = $index + 1;
             if (!filter_var($brand->brand_image, FILTER_VALIDATE_URL)) {
                 $brand->brand_image = asset('images/brands/' . $brand->brand_image);
