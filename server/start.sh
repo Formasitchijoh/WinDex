@@ -12,4 +12,4 @@ done
 # Run migrations and seeding
 php artisan migrate --force
 php artisan db:seed --force --class=BrandSeeder
-php-fpm
+php artisan serve --host=0.0.0.0 --port=$PORT
