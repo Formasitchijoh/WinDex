@@ -17,6 +17,12 @@ services:
     build: .
     volumes:
       - ./server:/var/www/html
+    command: >
+      sh -c "
+         composer install --no-dev --optimize-autoloader &&
+         php artisan migrate:fresh --force &&
+         php artisan db:seed --force --class=BrandSeeder
+         php-fpm"
     depends_on:
       db:
         condition: service_healthy
