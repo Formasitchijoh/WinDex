@@ -1,4 +1,4 @@
-const apiUrl = 'http://localhost:8000/api/brands';
+const apiUrl = 'https://windex.onrender.com/api/brands';
 
 function fetchBrands(country = '') {
     const headers = country ? { 'CF-IPCountry': country } : {};
