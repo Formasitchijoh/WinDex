@@ -1,6 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    padding: 10px;
+    padding: 5px;
     margin: 0;
     background-color: #f5f5f5;
 }
@@ -36,39 +36,61 @@ th, td {
     font-size: 14px;
 }
 th {
-    background-color: #007bff;
+    background-color: #618bcc;
     color: white;
     font-weight: bold;
 }
 .casino-cell {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 10px;
 }
 .casino-cell img {
-    width: 40px;
+    width: 80px;
     height: auto;
-    border-radius: 4px;
+    border-radius: 100%;
+}
+.plus {
+    width: 50px;
+    height: auto;
+    border-radius: 100%;
+}
+.casino-name {
+    color: #305ab1;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: medium;
+    text-decoration: none;
+
+
+}
+.rank{
+    background-color: #c82333;
+    width: 100%;
+    height: auto;
 }
 .stars {
     color: #ffd700;
     font-size: 16px;
 }
 .visit-btn, .edit-btn, .delete-btn {
-    padding: 6px 12px;
+    padding: 12px 12px;
     border-radius: 4px;
     border: none;
     cursor: pointer;
     text-decoration: none;
     display: inline-block;
     margin: 2px;
+    font-size: 14px;
+    text-align: center;
 }
 .visit-btn {
-    background-color: #28a745;
+    background-color: #489b6f;
     color: white;
 }
 .visit-btn:hover {
-    background-color: #218838;
+    background-color: #54b682;
 }
 .edit-btn {
     background-color: #007bff;
@@ -123,22 +145,110 @@ button:hover {
 }
 .badge {
     display: inline-block;
-    padding: 4px 8px;
+    padding: 4px 4px;
     margin-left: 10px;
-    border-radius: 4px;
+    border-radius:  0px 0px 4px 4px;
     font-size: 12px;
     font-weight: bold;
     color: white;
+    text-align: center;
+    white-space: nowrap;
+    width: 80%;
 }
 .best-rating {
-    background-color: purple; /* Green for Best Rating */
-    word-wrap:unset;
-}
+    background-color: purple;
+    white-space: nowrap;}
 .popular {
-    background-color: orange; /* Blue for Popular */
-    word-wrap:unset;
+    background-color: orange; 
+    white-space: nowrap;
 }
 .brand-ranking {
-    width: 100px;
-    height: 30px;
+    margin-bottom: 100px;
+
+}
+
+.navbar {
+    background-color: #333;
+    padding: 0 0;
+    text-align: center;
+    height: 5vh;
+}
+.spinner {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 3px solid #007bff;
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-left: 10px;
+    vertical-align: middle;
+}
+
+.error {
+    text-align: center;
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.description {
+    text-align: left;
+    color: #333;
+    font-size: 13px;
+    background-color: #f9f9f9;
+    padding: 15px;
+}
+
+.action-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 4;
+}
+
+.bonus {
+    display: inline-block;
+    width: 80%;
+    justify-content: center;
+    align-items: center;
+    gap: 4;
+    text-align: center;
+}
+
+a {
+    margin-top: 5px;
+    text-decoration: none;
+}
+/* Styling for the terms column circle */
+.terms-circle {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #4CAF50; /* Green background, adjust as needed */
+    color: white;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+}
+
+/* Plus sign in the top-right corner */
+.terms-circle::after {
+    content: '+';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 16px;
+    height: 16px;
+    background-color: #ff4444; /* Red background for plus sign, adjust as needed */
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
 }

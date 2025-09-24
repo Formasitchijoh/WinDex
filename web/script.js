@@ -1,14 +1,42 @@
 const apiUrl = 'https://windex.onrender.com/api/brands';
 
+function formatBonus(bonus) {
+    if (!bonus || bonus === 'N/A') return 'N/A';
+
+    const bonusRegex = /^(\d+)%\s*up\s*to\s*([€$£]?)(\d+)\s*(.*?)$/i;
+    const match = bonus.match(bonusRegex);
+
+    if (!match) return bonus;
+    const [, percentage, currency, amount, extra] = match;
+    let formattedBonus = `<strong>${percentage}% jusqu'à ${currency}${amount}</strong>`;
+
+    if (extra.trim()) {
+        const extraFormatted = extra.replace(/FS/i, 'Tours Gratuit').trim();
+        formattedBonus += `<br>${extraFormatted}`;
+    }
+
+    return formattedBonus;
+}
+
 function fetchBrands(country = '') {
+    const tbody = document.getElementById('brands-tbody');
+    tbody.innerHTML = '<tr><td colspan="6" class="loading">Loading brands...<div class="spinner"></div></td></tr>';
+
     const headers = country ? { 'CF-IPCountry': country } : {};
     fetch(apiUrl, { headers })
-        .then(res => res.json())
+        .then(res => {
+            if (!res.ok) throw new Error('Failed to fetch brands');
+            return res.json();
+        })
         .then(brands => {
-            const tbody = document.getElementById('brands-tbody');
             tbody.innerHTML = '';
             let hasCountryMatch = brands.some(b => b.country_code === country.toUpperCase());
             let firstNonCountryFound = false;
+
+            if (brands.length === 0) {
+                tbody.innerHTML = '<tr><td colspan="6" class="error">No brands available.</td></tr>';
+                return;
+            }
 
             brands.forEach((brand, index) => {
                 const isCountryMatch = country && brand.country_code === country.toUpperCase();
@@ -17,28 +45,53 @@ function fetchBrands(country = '') {
 
                 if (!isCountryMatch) firstNonCountryFound = true;
 
+                // First row: Main brand content
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td class="brand-ranking">
-                    ${isFirstInCountry ? '<span class="badge best-rating">Best Rating</span>' : ''}
-                    ${isFirstNonCountry ? '<span class="badge popular">Most Popular</span>' : ''}
-                    ${brand.rank}</td>
-                    <td class="casino-cell">
-                        <img src="${brand.brand_image}" alt="${brand.brand_name}">
-                        <span>${brand.brand_name}</span>
-                    </td>
-                    <td>${brand.bonus || 'N/A'}</td>
-                    <td class="stars">${renderStars(brand.rating)}</td>
-                    <td>${brand.terms || 'N/A'}</td>
                     <td>
-                        <a href="${brand.link}" target="_blank" class="visit-btn">Visit Casino</a>
+                        <div class="brand-ranking">
+                            ${brand.rank}
+                            ${isFirstInCountry ? '<span class="badge best-rating">MEILLEURE NOTE</span>' : ''}
+                            ${isFirstNonCountry ? '<span class="badge popular">POPULAIRE</span>' : ''}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="casino-cell">
+                            <img src="${brand.brand_image}" alt="${brand.brand_name}">
+                            <a href="${brand.link}" target="_blank" class="casino-name">${brand.brand_name}</a>
+                        </div>
+                    </td>
+                     <td>
+                        <img class="plus" src="https://simplyfinance.com.au/wp-content/uploads/2021/05/Icon-Tick-Dark-1.svg">
+                    </td>
+                    <td>
+                        <div class="bonus">${formatBonus(brand.bonus)}</div>
+                    </td>
+                    <td class="stars">${renderStars(brand.rating)}</td>
+                    <td>
+                        <img class="plus" src="asset/plus.png" alt="${brand.brand_name}">
+                    </td>
+                    <td>
+                        <div class="action-column">
+                            <button class="visit-btn">Obtenir le bonus</button>
+                            <a href="${brand.link}" target="_blank" >Visiter le site</a>
+                        </div>
                     </td>
                 `;
                 tbody.appendChild(row);
+
+                // Second row: Merged cell for description
+                const descRow = document.createElement('tr');
+                descRow.innerHTML = `
+                    <td class="brand-ranking"></td>
+                    <td colspan="5" class="description">Découvrir ${brand.brand_name} : C'est un casino de premier ordre offrant des jeux excitants et des bonus.</td>
+                `;
+                tbody.appendChild(descRow);
             });
         })
         .catch(error => {
             console.error('Error fetching brands:', error);
+            tbody.innerHTML = '<tr><td colspan="6" class="error">Failed to load brands. Please try again.</td></tr>';
             document.getElementById('country-info').textContent = 'Error loading toplist';
         });
 }
@@ -51,20 +104,17 @@ function renderStars(rating) {
     return stars;
 }
 
-// Initial fetch (relies on Cloudflare's CF-IPCountry in production)
 fetchBrands();
-document.getElementById('country-info').textContent = 'Toplist based on your location (Cloudflare CF-IPCountry)';
+document.getElementById('country-info').textContent = 'Toplist basé sur votre localisation (Cloudflare CF-IPCountry)';
 
-// Simulate CF-IPCountry for testing
 document.getElementById('country-selector').addEventListener('change', e => {
     const country = e.target.value;
     document.getElementById('country-info').textContent = country
-        ? `Toplist for ${country}`
-        : 'Toplist based on your location (Cloudflare CF-IPCountry)';
-    fetchBrands(country);
+        ? `Toplist pour ${country}` 
+        : 'Toplist basé sur votre localisation (Cloudflare CF-IPCountry)';
 });
 
-document.getElementById('add-brand').addEventListener('submit', e => {
+document.getElementById('add-brand')?.addEventListener('submit', e => {
     e.preventDefault();
     const data = {
         brand_name: document.getElementById('name').value,

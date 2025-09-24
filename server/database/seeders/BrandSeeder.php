@@ -14,7 +14,7 @@ class BrandSeeder extends Seeder
                 'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/mad-casino-optimized.png',  // Replace with actual URL
                 'rating' => 5,
                 'country_code' => 'US',  // Canada-focused from site
-                'bonus' => '300% up to €3,000 on 3 deposits',
+                'bonus' => '300% up to €3000 on 3 deposits',
                 'terms' => 'Wagering ×30, min deposit €20, withdrawal 1-48h',
                 'link' => 'https://www.opnminded.com/mad-casino'
             ],
@@ -83,7 +83,7 @@ class BrandSeeder extends Seeder
             ],
             [
                 'brand_name' => 'Brutal Casino',
-                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/06/brutal-casino_fr_8-optimized.webp',
+                'brand_image' => 'https://www.opnminded.com/wp-content/uploads/2025/07/grandzbet-casino-optimized.png',
                 'rating' => 5,
                 'country_code' => 'CA',
                 'bonus' => '100% up to €300 without wagering',
