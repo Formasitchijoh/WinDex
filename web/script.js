@@ -20,7 +20,12 @@ function formatBonus(bonus) {
 
 function fetchBrands(country = '') {
     const tbody = document.getElementById('brands-tbody');
-    tbody.innerHTML = '<tr><td colspan="6" class="loading">Loading brands...<div class="spinner"></div></td></tr>';
+    tbody.innerHTML = `<tr>
+    <td colspan="6" >
+        <div class="loading">
+            Loading brands...<div class="spinner"></div>
+        </div>
+    </td></tr>`;
 
     const headers = country ? { 'CF-IPCountry': country } : {};
     fetch(apiUrl, { headers })

@@ -184,6 +184,15 @@ button:hover {
     margin-left: 10px;
     vertical-align: middle;
 }
+.loading {
+    display: flex;
+    width: 80%;
+    height: 15%;
+    padding: 10px;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: center;
+}
 
 .error {
     text-align: center;
