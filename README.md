@@ -101,6 +101,6 @@ curl -H "CF-IPCountry: CA" http://localhost:8000/api/brands
 
 ### Deployment URLs
 - **Backend**: [https://windex.onrender.com](https://windex.onrender.com)
-- **Frontend**: [https://win-b3ixxgho3-formasitchijohs-projects.vercel.app/](https://win-b3ixxgho3-formasitchijohs-projects.vercel.app/)
+- **Frontend**: [https://win-dex.vercel.app/](https://win-dex.vercel.app/)
 
 ---
