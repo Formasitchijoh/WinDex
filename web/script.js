@@ -110,8 +110,9 @@ document.getElementById('country-info').textContent = 'Toplist basé sur votre l
 document.getElementById('country-selector').addEventListener('change', e => {
     const country = e.target.value;
     document.getElementById('country-info').textContent = country
-        ? `Toplist pour ${country}` 
+        ? `Toplist pour ${country}`
         : 'Toplist basé sur votre localisation (Cloudflare CF-IPCountry)';
+    fetchBrands(country);
 });
 
 document.getElementById('add-brand')?.addEventListener('submit', e => {
