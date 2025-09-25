@@ -35,6 +35,12 @@ Supports geolocation-based toplists using the **CF-IPCountry** header.
 git clone https://github.com/Formasitchijoh/WinDex.git
 cd WinDex
 ```
+
+## Setup Environment Variable
+```bash
+cp .env.example .env
+```
+
 ### Local Development
 For local development, edit WinDex/server/start.sh:
 - **Comment out**: `exec php artisan serve --host=0.0.0.0 --port=$PORT`.
